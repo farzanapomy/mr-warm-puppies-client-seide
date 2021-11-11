@@ -9,7 +9,9 @@ import Home from './pages/Home/Home/Home';
 import Reviews from './pages/Home/Reviews/Reviews';
 import Products from './pages/Home/Products/Products';
 import AddProduct from './pages/Private/AddProduct/AddProduct';
-import Product from './pages/SingleItems/Product/Product';
+import Login from './pages/Login/Login/Login';
+import AddReview from './pages/Private/AddReview/AddReview';
+import AllProducts from './pages/AllProducts/AllProducts/AllProducts';
 
 function App() {
   return (
@@ -31,7 +33,16 @@ function App() {
           <Route exact path="/addProduct">
             <AddProduct />
           </Route>
+          <Route exact path="/AddReview">
+            <AddReview />
+          </Route>
+          <Route exact path="/AllProducts">
+            <AllProducts />
+          </Route>
         
+          <Route path="/login">
+            <Login />
+          </Route> 
           <Route path="/about">
             <About />
           </Route> 

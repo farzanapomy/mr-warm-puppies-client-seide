@@ -13,7 +13,7 @@ const Footer = () => {
                                 <div className="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style={{visibility:'visible' ,animationDelay: '0.2s',animationName:'fadeInLeft'  }}>
                                     <h3 className="f-title f_600 t_color f_size_18">Get in Touch</h3>
                                     <p>Don’t miss any updates of our new templates and extensions.!</p>
-                                    <form action="#" className="f_subscribe_two mailchimp" method="post" noValidate="true" _lpchecked="1">
+                                    <form action="#" className="f_subscribe_two mailchimp" method="post" noValidate={true} _lpchecked="1">
                                         <input type="text" name="EMAIL" className="form-control memail" placeholder="Email"/>
                                         <button className ="btn btn_get btn_get_two" type ="submit">Subscribe</button>
                                         <p className ="mchimp-errmessage" style={{display: 'none'}}></p>

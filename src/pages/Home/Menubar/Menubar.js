@@ -19,6 +19,7 @@ const Menubar = () => {
                         <Nav.Link as={Link} to="/home#products">Products</Nav.Link>
                         <Nav.Link as={Link} to="/home#reviews">Reviews</Nav.Link>
                         <Nav.Link className='nav-menu' as={Link} to="/home#products">Features</Nav.Link>
+                        <Nav.Link className='nav-menu' as={Link} to="/login">Login</Nav.Link>
 
                         <Navbar.Text>
                             Hello <a href="#login">Mark Otto</a>
