@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const Reviews = () => {
     return (
-        <div>
+        <div id='reviews'>
             <h2> hello</h2>
             <Button variant="primary">Button #1</Button>
         </div>

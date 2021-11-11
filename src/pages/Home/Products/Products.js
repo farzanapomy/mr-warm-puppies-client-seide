@@ -1,21 +1,42 @@
 import React, { useEffect, useState } from 'react';
+import Product from '../../SingleItems/Product/Product';
+import './Products.css'
+
 
 const Products = () => {
-    const [products,setProducts]=useState([]);
+    const [products, setProducts] = useState([]);
 
-    useEffect(()=>{
-        fetch('./products.json')
-        .then(res=>res.json())
-        .then(data=>setProducts(data))
-    },[])
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => setProducts(data))
+    }, [])
+
     return (
-        <div>
-            <h3>this is Products {products.length}</h3>
-            {
-                products.map(product=> <div>{product.name} </div> )
-            }
+        <div id='products'>
+            <h3>Our Product</h3>
+
+            <div className=' products'>
+
+
+                {
+                    products.map(product => <Product
+                        key={product._id}
+                        product={product}
+                    ></Product>)
+                }
+
+
+            </div>
+
+
+
+
         </div>
     );
 };
 
 export default Products;
+
