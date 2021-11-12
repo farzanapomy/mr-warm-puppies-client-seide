@@ -1,4 +1,4 @@
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signOut } from 'firebase/auth'
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { useState, useEffect } from 'react';
 import initializeAuthentication from '../pages/Login/Firebase/firebase.init';
 
@@ -7,24 +7,40 @@ initializeAuthentication();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
+
+
 
     const auth = getAuth();
-
-   const registerUser = (email, password) => {
-        setIsLoading(true);
+    const registerUser = (name, email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
-            .then((result) => {
-                console.log(result.user)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
             })
             .catch((error) => {
-                setAuthError(error.message);
+                setError(error.message);
             })
             .finally(() => setIsLoading(false))
     }
 
 
+    const loginUser = (email,password) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+
     }
+
+
 
     const logOut = () => {
 
@@ -36,6 +52,7 @@ const useFirebase = () => {
 
 
     // check users 
+
     useEffect(() => {
         const unSubscribed = onAuthStateChanged(auth, user => {
             if (user) {
@@ -50,12 +67,12 @@ const useFirebase = () => {
     }, [])
 
 
-
     return {
         user,
         error,
         isLoading,
-        handleRegisterUser,
+        registerUser,
+        loginUser,
         logOut
 
     }

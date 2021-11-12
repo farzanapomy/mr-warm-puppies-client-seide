@@ -7,7 +7,7 @@ const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/products', data)
+        axios.post('https://powerful-ravine-08255.herokuapp.com/products', data)
             .then(res => {
 
                 if (data.insertedId) {

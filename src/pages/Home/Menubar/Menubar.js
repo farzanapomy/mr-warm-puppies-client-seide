@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo.png'
 
 const Menubar = () => {
+    const { user,logout } = useAuth();
     return (
 
         <>
@@ -17,13 +19,16 @@ const Menubar = () => {
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link as={Link} to="/home#home">Home</Nav.Link>
                         <Nav.Link as={Link} to="/home#products">Products</Nav.Link>
+                        <Nav.Link className='nav-menu' as={Link} to="/home#Products">Features</Nav.Link>
                         <Nav.Link as={Link} to="/home#reviews">Reviews</Nav.Link>
-                        <Nav.Link className='nav-menu' as={Link} to="/home#products">Features</Nav.Link>
-                        <Nav.Link className='nav-menu' as={Link} to="/login">Login</Nav.Link>
-
-                        <Navbar.Text>
-                            Hello <a href="#login">Mark Otto</a>
-                        </Navbar.Text>
+                        {user ?
+                            <Nav.Link className='nav-menu' as={Link} to="/login">Sign Out</Nav.Link>
+                            : <Nav.Link className='nav-menu' as={Link} to="/login">Sign in</Nav.Link>}
+                       
+                        {user.email &&
+                            <h6>Hello<a href="#login"> {user?.displayName}</a>
+                            </h6>
+                        }
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
