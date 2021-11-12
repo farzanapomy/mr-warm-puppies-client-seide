@@ -1,6 +1,6 @@
 import React from 'react';
 
-const useAuth = ({children}) => {
+const useAuth = () => {
 
     return (
         <div>

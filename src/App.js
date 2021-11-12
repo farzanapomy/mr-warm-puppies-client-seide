@@ -40,7 +40,7 @@ function App() {
             <AllProducts />
           </Route>
         
-          <Route path="/login">
+          <Route exact path="/login">
             <Login />
           </Route> 
           <Route path="/about">

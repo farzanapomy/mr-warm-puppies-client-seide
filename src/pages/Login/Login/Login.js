@@ -2,11 +2,16 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faSmileBeam } from '@fortawesome/free-solid-svg-icons'
 import { useForm } from 'react-hook-form';
+import useFirebase from '../../../hooks/useFirebase';
 
 const Login = () => {
+    const { handleRegisterUser } = useFirebase()
     const element = <FontAwesomeIcon icon={faSmileBeam} />
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        handleRegisterUser(data.email, data.password)
+        console.log(data)
+    };
 
 
     return (
