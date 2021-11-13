@@ -11,10 +11,9 @@ const PlaceOrder = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-
-    
         console.log(data)
     }
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/singleProduct/${Id}`)
@@ -33,7 +32,7 @@ const PlaceOrder = () => {
                         <h2>{products?.name}</h2>
                         <p>{products?.description}</p>
                     </div>
-                    <div className="col-lg-5">
+                    <div className="col-lg-5 pt-5">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input
                                 {...register("text", { required: true })}
@@ -62,7 +61,7 @@ const PlaceOrder = () => {
                                 className='p-2 w-100 input-field'
                             />
 
-                            <input className='btn btn-warning' type="submit" />
+                            <input className='btn btn-warning' type="submit" value="Order Now"/>
                         </form>
                     </div>
                 </div>

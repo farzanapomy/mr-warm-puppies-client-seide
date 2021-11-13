@@ -15,7 +15,7 @@ const AllProduct = ({ allProduct }) => {
                             {description}
                         </Card.Text>
                         <Card.Text>Price :${price}</Card.Text>
-                        <Link to={`/allProduct/${_id}`}>
+                        <Link to={`/allProducts/${_id}`}>
                             <button className='btn btn-warning'>Purchase Now</button>
                         </Link>
                     </Card>

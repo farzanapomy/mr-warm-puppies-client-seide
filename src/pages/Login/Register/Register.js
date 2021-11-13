@@ -1,33 +1,39 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSmileBeam } from '@fortawesome/free-solid-svg-icons'
 import useAuth from '../../../hooks/useAuth';
 import login from '../../../images/singup.jpg';
 import { Alert, Container } from 'react-bootstrap';
 import {  Grid, TextField, Typography,Button } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useLocation,useHistory } from 'react-router-dom';
 import loader from  '../../../images/loader.gif'
 
 const Register = () => {
     const { user, registerUser, isLoading, error } = useAuth()
-    const [displaydata, setDisplayData] = useState({});
+    const [displayData, setDisplayData] = useState({});
+
+const location=useLocation();
+const history=useHistory()
 
     const onchangeHandler = e => {
         const field = e.target.name;
         const value = e.target.value;
-        const updateDisplayData = { ...displaydata };
+        const updateDisplayData = { ...displayData };
         updateDisplayData[field] = value;
         setDisplayData(updateDisplayData);
 
     }
 
-
-    const handleregister = (e) => {
-        if (displaydata.password !== displaydata.password2) {
+    const handleRegister = (e) => {
+        
+        if (displayData.password !== displayData.password2) {
             alert('your password did not match');
             return;
         }
-        registerUser(displaydata.email, displaydata.password)
+        registerUser(displayData.email, displayData.password)
         registerUser()
         e.preventDefault()
+        e.target.reset()
     }
 
     return (
@@ -42,14 +48,14 @@ const Register = () => {
                         <Typography variant="body1" gutterBottom>
                             Register
                         </Typography>
-                        {!isLoading && <form onSubmit={handleregister}>
-                            <TextField
+                        {!isLoading && <form onSubmit={handleRegister}>
+                            {/* <TextField
                                 sx={{ width: '75%', m: 1 }}
                                 id="standard-basic"
                                 label="Your Name"
                                 name="name"
                                 onBlur={onchangeHandler}
-                                variant="standard" />
+                                variant="standard" /> */}
                             <TextField
                                 sx={{ width: '75%', m: 1 }}
                                 id="standard-basic"

@@ -18,6 +18,7 @@ import Register from './pages/Login/Register/Register';
 import PlaceOrder from './pages/Private/PlaceOrder/PlaceOrder';
 import Menubar from './pages/Home/Menubar/Menubar';
 import Footer from './pages/Home/Footer/Footer';
+import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -38,22 +39,23 @@ function App() {
             <Route exact path="/products">
               <Products />
             </Route>
-            <Route exact path="/products/:Id">
+            <PrivateRoute exact path="/products/:Id">
               <PlaceOrder />
-            </Route>
-            <Route  path="/addProduct">
+            </PrivateRoute>
+            <Route path="/addProduct">
               <AddProduct />
             </Route>
-            <Route  path="/AddReview">
+            <Route path="/AddReview">
               <AddReview />
             </Route>
-            <Route exact path="/allProducts/:Id">
+            <PrivateRoute exact path="/allProducts/:Id">
               <PlaceOrder />
-            </Route>
-            <Route  path="/allProducts">
+
+            </PrivateRoute>
+            <Route path="/allProducts">
               <AllProducts />
             </Route>
-            <Route  path="/placeOrder">
+            <Route path="/placeOrder">
               <PlaceOrder />
             </Route>
             <Route exact path="/register">

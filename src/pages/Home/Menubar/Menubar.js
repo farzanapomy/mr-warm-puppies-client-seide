@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo.png'
@@ -7,6 +9,8 @@ import './Menubar.css'
 
 const Menubar = () => {
     const { user, logOut } = useAuth();
+    const element = <FontAwesomeIcon icon={faUser} />
+
 
     return (
 
@@ -33,7 +37,7 @@ const Menubar = () => {
                         <Navbar.Text>
 
                             {user.email &&
-                                <h6>Hello<a href="#login"> {user?.displayName}</a>
+                                <h6>{element} <a href="#login"> {user?.email}</a>
                                 </h6>
                             }
                         </Navbar.Text>

@@ -14,29 +14,32 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                if (password < 6) {
+                    setError('password should be 6 characters');
+                }
+                console.log(email, password)
             })
             .catch((error) => {
                 setError(error.message);
             })
             .finally(() => setIsLoading(false))
-        if (password < 6) {
-            setError('password should be 6 characters');
-        }
-        console.log(email,password)
+        console.log(email, password)
 
     }
 
-    const loginUser = (email, password) => {
+
+
+    const loginUser = (email, password, location, history) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
                 const user = userCredential.user;
-                // ...
+                const destination = location?.start?.from || "/";
+                history.replace(destination);
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            });
+                setError( error.message);
+            })
+            .finally(() => setIsLoading(false))
     }
 
 
@@ -54,20 +57,17 @@ const useFirebase = () => {
 
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUser(user)
-            }
-            else {
+                setUser(user);
+
+            } else {
                 setUser({})
             }
-            setIsLoading(false)
-
-        })
-
-        return () => unSubscribe;
-    }, [])
-
+            setIsLoading(false);
+        });
+        return () => unsubscribed;
+    }, [auth])
 
 
 
