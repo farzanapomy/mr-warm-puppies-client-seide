@@ -1,0 +1,7 @@
+.product-container{
+    background-color: aliceblue;
+    box-shadow: 10px 10px 20px gray;
+    color: orange;
+    padding: 10px;
+    height: 90%;
+}

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const AllProduct = ({ allProduct }) => {
-    const { name, img, price, description } = allProduct;
+    const { name, img, price, description,_id } = allProduct;
     return (
         <div>
             <div className='container w-75'>
@@ -13,7 +14,9 @@ const AllProduct = ({ allProduct }) => {
                         {description}
                     </Card.Text>
                     <Card.Text>Price :${price}</Card.Text>
+                    <Link to={`/products/${_id}`}>
                     <button className='btn btn-warning'>Purchase Now</button>
+                   </Link>
                 </Card>
             </div>
         </div>

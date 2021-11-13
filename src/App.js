@@ -15,6 +15,7 @@ import AllProducts from './pages/AllProducts/AllProducts/AllProducts';
 import AuthProvider from './contexts/AuthProvider';
 import NotFound from './pages/NotFound/NotFound';
 import Register from './pages/Login/Register/Register';
+import PlaceOrder from './pages/Private/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
             <Route exact path="/products">
               <Products />
             </Route>
+            <Route exact path="/products/:Id">
+              <PlaceOrder />
+            </Route>
             <Route exact path="/addProduct">
               <AddProduct />
             </Route>
@@ -43,11 +47,12 @@ function App() {
             <Route exact path="/AllProducts">
               <AllProducts />
             </Route>
-
+            <Route exact path="/PlaceOrder">
+              <PlaceOrder />
+            </Route>
             <Route exact path="/register">
               <Register />
             </Route>
-
             <Route exact path="/login">
               <Login />
             </Route>
