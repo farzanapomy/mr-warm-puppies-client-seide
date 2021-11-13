@@ -1,41 +1,87 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faSmileBeam } from '@fortawesome/free-solid-svg-icons'
-import { useForm } from 'react-hook-form';
-import useFirebase from '../../../hooks/useFirebase';
+import { CircularProgress, Grid, TextField, Typography } from '@mui/material';
+import Button from '@restart/ui/esm/Button';
+import React, { useState } from 'react';
+import { Alert, Container } from 'react-bootstrap';
+import { useHistory, useLocation } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import login from '../../../images/login.jpg'
+import useAuth from '../../../hooks/useAuth';
+
 
 const Login = () => {
-    const {user, loginUser } = useFirebase()
-    const element = <FontAwesomeIcon icon={faSmileBeam} />
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
+    const [logInData, setLogInData] = useState({});
+    const { user, loginUser, isLoading, error } = useAuth()
+    const onchangeHandler = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...logInData };
+        newLoginData[field] = value;
+        setLogInData(newLoginData);
+    }
 
-        loginUser( data.email, data.password)
-        
+    const location = useLocation()
+    const history = useHistory();
 
-        console.log(data)
-    };
+    const handleLogInSubmit = e => {
+        loginUser(logInData.email, logInData.password, location, history)
+        e.preventDefault()
 
-
+    }
+ 
     return (
-        <div>
-            <h1>{element}</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              
-                <input
-                    {...register("email",)}
-                    placeholder='Your Email'
-                />
+        <Container>
+            <Grid>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                        <img style={{ width: '100%' }} src={login} alt="" />
+                    </Grid>
+                    <Grid item sx={{ mt: 8 }} xs={12} md={6}>
+                        <Typography variant="body1" gutterBottom>
+                           Please Login 
+                        </Typography>
+                        <form onSubmit={handleLogInSubmit}>
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="Your Email"
+                                name="email"
+                                onBlur={onchangeHandler}
+                                variant="standard" />
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                type='password'
+                                name="password"
+                                onBlur={onchangeHandler}
+                                label="Password"
+                                variant="standard" />
+                                <br />
+                            <Button type="submit" sx={{ width: '75%', m: 1 }} variant="contained">Login</Button>
+                            {
+                                isLoading && <CircularProgress color="inherit" />
+                            }
+                            {
+                                user?.email && <Alert severity="success">User Created successfully</Alert>
 
-                <input type="password"
-                    {...register("password",)}
-                    placeholder='Your password'
-                />
-               
-                <input type="submit" />
-            </form>
+                            }
+                            {
+                                error && <Alert severity="error">{error}</Alert>
 
-        </div>
+                            }
+                            
+                            <NavLink to='/register' style={{ textDecoration: "none" ,display:'block', margin:'5px' }}>
+                                <p variant="text">  New User ? please Register.</p>
+                            </NavLink>
+                        </form>
+                     <br />
+                       
+
+                    </Grid>
+
+
+                </Grid>
+            </Grid>
+        </Container>
     );
 };
 

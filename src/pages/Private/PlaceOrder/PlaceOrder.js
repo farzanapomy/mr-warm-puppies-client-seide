@@ -16,11 +16,6 @@ const PlaceOrder = () => {
         console.log(data)
     }
 
-
-
-
-
-
     useEffect(() => {
         fetch(`http://localhost:5000/singleProduct/${Id}`)
             .then(res => res.json())

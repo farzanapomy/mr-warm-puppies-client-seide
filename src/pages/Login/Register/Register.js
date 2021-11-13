@@ -1,62 +1,105 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSmileBeam } from '@fortawesome/free-solid-svg-icons'
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
+import login from '../../../images/singup.jpg';
+import { Alert, Container } from 'react-bootstrap';
+import {  Grid, TextField, Typography,Button } from '@mui/material';
+import { NavLink } from 'react-router-dom';
+import loader from  '../../../images/loader.gif'
 
 const Register = () => {
-    const { user, registerUser } = useAuth()
-    const element = <FontAwesomeIcon icon={faSmileBeam} />
+    const { user, registerUser, isLoading, error } = useAuth()
+    const [displaydata, setDisplayData] = useState({});
 
-    const { register, handleSubmit,watch,errors } = useForm();
+    const onchangeHandler = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const updateDisplayData = { ...displaydata };
+        updateDisplayData[field] = value;
+        setDisplayData(updateDisplayData);
 
-    const onSubmit = data => {
-        registerUser(data.name, data.email, data.password)
-        if (data.password !== data.password2) {
+    }
+
+
+    const handleregister = (e) => {
+        if (displaydata.password !== displaydata.password2) {
             alert('your password did not match');
             return;
         }
-
-        console.log(data)
-    };
-
+        registerUser(displaydata.email, displaydata.password)
+        registerUser()
+        e.preventDefault()
+    }
 
     return (
-        <div>
-            <h1>{element}</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    {...register("name",)}
-                    placeholder="Enter your name"
-                    name="name"
-                    type="name"
-                />
+        <Container sx={{ my: 5 }}>
+            <Grid>
 
-                <input
-                    {...register("email",)}
-                    placeholder='Your Email'
-                    name="email"
-                    type="email"
-                />
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                        <img style={{ width: '100%' }} src={login} alt="" />
+                    </Grid>
+                    <Grid item sx={{ mt: 8 }} xs={12} md={6}>
+                        <Typography variant="body1" gutterBottom>
+                            Register
+                        </Typography>
+                        {!isLoading && <form onSubmit={handleregister}>
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="Your Name"
+                                name="name"
+                                onBlur={onchangeHandler}
+                                variant="standard" />
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                label="Your Email"
+                                name="email"
+                                type="email"
+                                onBlur={onchangeHandler}
+                                variant="standard" />
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                type='password'
+                                name="password"
+                                onBlur={onchangeHandler}
+                                label="Password"
+                                variant="standard" />
+                            <TextField
+                                sx={{ width: '75%', m: 1 }}
+                                id="standard-basic"
+                                type='password'
+                                name="password2"
+                                label="Retype Password"
+                                onBlur={onchangeHandler}
+                                variant="standard" />
+                            <br />
+                            <Button type="submit" sx={{ width: '50%', m: 1}} variant="contained">Register</Button>
+                            <br />
+                            <NavLink to='/login' style={{ textDecoration: "none", m: 5 }}>
+                                <p variant="text"> Already registered ? please Login.</p>
+                            </NavLink>
+                        </form>}
 
-                <input
-                    type="password"
-                    {...register("password",)}
-                    placeholder='Your password'
-                    name="password"
+                        {
+                            isLoading && <img src={loader} alt="" />
+                        }
+                        {
+                            user?.email && <Alert severity="success">User Created successfully</Alert>
+                        }
+                        {
+                            
+                            error && <Alert severity="error">{error}</Alert>
 
-                />
-                <input
-                    type="password"
-                    {...register("password2",)}
-                    placeholder='Retype password'
-                    name="password2"
+                        }
 
-                />
-                <input type="submit" />
-            </form>
+                    </Grid>
 
-        </div>
+
+                </Grid>
+            </Grid>
+        </Container>
     );
 };
 

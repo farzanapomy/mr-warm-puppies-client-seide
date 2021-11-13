@@ -1,33 +1,53 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo.png'
+import './Menubar.css'
 
 const Menubar = () => {
-    const {user}=useAuth();
+    const { user, logOut } = useAuth();
+
     return (
 
         <>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="dark" className='mb-2' variant="dark" sticky="top" collapseOnSelect expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">
-                        <img className='bg-light rounder w-50' src={logo} alt="" />
+                    <Navbar.Brand className='logo border-0 nav-img' href="/home#home">
+                        <img className='my-2 bg-white rounded ' src={logo} alt="" />
                     </Navbar.Brand>
-
                     <Navbar.Toggle />
-                    <Navbar.Collapse className="justify-content-end">
-                        <Nav.Link as={Link} to="/home#home">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/home#products">Products</Nav.Link>
-                        <Nav.Link className='nav-menu' as={Link} to="/allProducts">Explore Products</Nav.Link>
-                        <Nav.Link as={Link} to="/home#reviews">Reviews</Nav.Link>
-                       {user ?
-                        <Nav.Link className='nav-menu' as={Link} to="/login">Sign Out</Nav.Link>
-                       : <Nav.Link className='nav-menu' as={Link} to="/login">Sign in</Nav.Link>}
 
-                      {user.email && <Navbar.Text>
-                            Hello <a href="#login">{user.displayName}</a>
-                        </Navbar.Text>}
+                    <Navbar.Collapse className="justify-content-end ">
+                        <Nav.Link className='nav-text' as={HashLink} to="/home#home">Home</Nav.Link>
+                        <Nav.Link className='nav-text' as={HashLink} to="/home#products">Products</Nav.Link>
+                        <Nav.Link className='nav-text' as={HashLink} to="/allproducts">Explore</Nav.Link>
+                        <Nav.Link className='nav-text' as={HashLink} to="/home#reviews">Reviews</Nav.Link>
+
+                        {user.email && <Nav.Link className='nav-text' as={HashLink} to="/home#products">DashBoard</Nav.Link>}
+                        <Nav.Link className='nav-text' as={HashLink} to="/about">About US</Nav.Link>
+
+                    </Navbar.Collapse>
+
+                    <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Text>
+
+                            {user.email &&
+                                <h6>Hello<a href="#login"> {user?.displayName}</a>
+                                </h6>
+                            }
+                        </Navbar.Text>
+                        {/* <Navbar.Text>
+                            <img className='w-50 rounded rounded-pill' src={user.photoURL} alt="" />
+                        </Navbar.Text> */}
+                        <Navbar.Collapse className='me-end'>
+                            {
+                                user.email ?
+                                    <Button variant='primary' className='m-3' onClick={logOut}>Sign Out</Button>
+                                    :
+                                    <button className='nav-button nav-text'><Nav.Link as={HashLink} to="/login">Login </Nav.Link></button>
+                            }
+                        </Navbar.Collapse>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

@@ -16,12 +16,15 @@ import AuthProvider from './contexts/AuthProvider';
 import NotFound from './pages/NotFound/NotFound';
 import Register from './pages/Login/Register/Register';
 import PlaceOrder from './pages/Private/PlaceOrder/PlaceOrder';
+import Menubar from './pages/Home/Menubar/Menubar';
+import Footer from './pages/Home/Footer/Footer';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
+          <Menubar></Menubar>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -38,16 +41,19 @@ function App() {
             <Route exact path="/products/:Id">
               <PlaceOrder />
             </Route>
-            <Route exact path="/addProduct">
+            <Route  path="/addProduct">
               <AddProduct />
             </Route>
-            <Route exact path="/AddReview">
+            <Route  path="/AddReview">
               <AddReview />
             </Route>
-            <Route exact path="/AllProducts">
+            <Route exact path="/allProducts/:Id">
+              <PlaceOrder />
+            </Route>
+            <Route  path="/allProducts">
               <AllProducts />
             </Route>
-            <Route exact path="/PlaceOrder">
+            <Route  path="/placeOrder">
               <PlaceOrder />
             </Route>
             <Route exact path="/register">
@@ -62,8 +68,8 @@ function App() {
             <Route path="*">
               <NotFound />
             </Route>
-
           </Switch>
+          <Footer></Footer>
         </Router >
       </AuthProvider>
 
