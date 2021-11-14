@@ -18,7 +18,7 @@ const PlaceOrder = () => {
             .then(res => res.json())
             .then(data => setProducts(data))
 
-    }, [])
+    }, [Id])
 
     const onSubmit = data => {
 
@@ -26,7 +26,7 @@ const PlaceOrder = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire(
-                        'Good job!',
+                        'WOW!',
                         'You Successfully added your Order!',
                         'Thank You'
                     )
@@ -44,13 +44,13 @@ const PlaceOrder = () => {
             <div className="product-container container">
                 <h1 className='text-dark'>Here you Can place Your Order</h1>
                 <div className="row">
-                    <div className="col-lg-5 m-5 border  p-4 bg-dark ">
+                    <div className="col-md-5 border my-5 p-2 bg-dark ">
                         <img className='img-fluid w-50' src={products.img} alt="" />
                         <h3>Product Price {products.price}</h3>
                         <h2>{products?.name}</h2>
                         <p>{products?.description}</p>
                     </div>
-                    <div className="col-lg-5 pt-5">
+                    <div className="col-md-5 my-5">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input
                                 {...register("text", { required: true })}

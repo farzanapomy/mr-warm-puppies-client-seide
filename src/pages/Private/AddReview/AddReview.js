@@ -1,13 +1,28 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2'
 
 const AddReview = () => {
-    const [reviews, setReviews] = useState([]);
+   
     const { register, handleSubmit } = useForm();
+
     const onSubmit = data => {
-            
-        console.log(data)};
+        axios.post('https://powerful-ravine-08255.herokuapp.com/reviews', data)
+            .then(res => {
+                if (data.insertedId) {
+                    Swal.fire(
+                        'WOW!',
+                        'You Successfully Added your valuable Review!',
+                        'Thank You'
+                    )
+                    return;
+                }
+                console.log(res)
+            })
+
+        console.log(data)
+    };
 
 
     return (

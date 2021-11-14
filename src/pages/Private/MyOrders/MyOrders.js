@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useAuth from '../../../hooks/useAuth';
+import Swal from 'sweetalert2'
 
 const MyOrders = () => {
     const { user } = useAuth();
@@ -20,7 +21,11 @@ const MyOrders = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount) {
-                        alert('Successfully Deleted Your Booking');
+                        Swal.fire(
+                            'WOW!',
+                            'You Successfully deleted your Order!',
+                            'Thank You'
+                        )
                         const rest = orders.filter(order => order._id !== id);
                         setOrders(rest);
                     }
@@ -35,7 +40,7 @@ const MyOrders = () => {
 
     return (
         <div className=''>
-            <h2>Your total orders {orders.length}</h2>
+            <h2>Your total orders  {orders.length}</h2>
             <div className="row container">
                 {
                     orders.map(order =>

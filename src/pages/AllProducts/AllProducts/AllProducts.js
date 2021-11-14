@@ -14,7 +14,7 @@ const AllProducts = ({ product }) => {
 
     return (
         <div>
-            <h2>this is AllProducts</h2>
+           
             <div className=' products'>
                 {
                     products.map(allProduct => <AllProduct
