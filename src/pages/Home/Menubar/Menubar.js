@@ -37,7 +37,7 @@ const Menubar = () => {
                         <Navbar.Text>
 
                             {user.email &&
-                                <h6>{element} <a href="#login"> {user?.email}</a>
+                                <h6>{element} <a href="#login"> {user?.displayName}</a>
                                 </h6>
                             }
                         </Navbar.Text>

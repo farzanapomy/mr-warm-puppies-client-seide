@@ -9,7 +9,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import AddReview from '../../Private/AddReview/AddReview';
+import AddReview from '../AddReview/AddReview';
 
 const DashBoard = () => {
     const { path, url } = useRouteMatch();
@@ -49,7 +49,7 @@ const DashBoard = () => {
                                 <Payment></Payment>
                             </Route>
                             <Route exact path={`${path}/makeAdmin`}>
-                                <Payment></Payment>
+                                {/* <MakeAdmin></MakeAdmin> */}
                             </Route>
                         </Switch>
                     </div>

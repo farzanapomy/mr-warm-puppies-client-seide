@@ -3,17 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSmileBeam } from '@fortawesome/free-solid-svg-icons'
 import useAuth from '../../../hooks/useAuth';
 import login from '../../../images/singup.jpg';
-import { Alert, Container } from 'react-bootstrap';
-import { Grid as div, TextField as input, Typography as h1, Button } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { Alert, Button, Container } from 'react-bootstrap';
+import { NavLink, useHistory } from 'react-router-dom';
 import loader from '../../../images/loader.gif'
+import './Register.css'
 
 const Register = () => {
     const { user, registerUser, isLoading, error } = useAuth()
     const [displayData, setDisplayData] = useState({});
+    const history = useHistory()
 
-
-    const onchangeHandler = e => {
+    const onBlurHandler = e => {
         const field = e.target.name;
         const value = e.target.value;
         const updateDisplayData = { ...displayData };
@@ -28,7 +28,7 @@ const Register = () => {
             alert('your password did not match');
             return;
         }
-        registerUser(displayData.email, displayData.password)
+        registerUser(displayData.email, displayData.password, displayData.name, history)
         registerUser()
         e.preventDefault()
         e.target.reset()
@@ -37,8 +37,7 @@ const Register = () => {
     return (
         <div className='container'>
             <div>
-
-                <div className='row'>
+                <div className='row register-form'>
                     <div className='col-md-6'>
                         <img style={{ width: '100%' }} src={login} alt="" />
                     </div>
@@ -47,32 +46,33 @@ const Register = () => {
                             Register
                         </h1>
                         {!isLoading && <form onSubmit={handleRegister}>
-                            {/* <input
-                                label="Your Name"
-                                name="name"
-                                onBlur={onchangeHandler}
-                                */}
                             <input
-                                label="Your Email"
+                                placeholder="Your Name"
+                                type="name"
+                                name="name"
+                                onBlur={onBlurHandler}
+                            />
+                            <input
+                                placeholder="Your Email"
                                 name="email"
                                 type="email"
-                                onBlur={onchangeHandler}
+                                onBlur={onBlurHandler}
                             />
                             <input
                                 type='password'
                                 name="password"
-                                onBlur={onchangeHandler}
-                                label="Password"
+                                onBlur={onBlurHandler}
+                                placeholder="Password"
                             />
                             <input
                                 type='password'
                                 name="password2"
-                                label="Retype Password"
-                                onBlur={onchangeHandler}
+                                placeholder="Retype Password"
+                                onBlur={onBlurHandler}
 
                             />
                             <br />
-                            <Button type="submit" sx={{ width: '50%', m: 1 }} variant="contained">Register</Button>
+                            <Button type="submit">Register</Button>
                             <br />
                             <NavLink to='/login' style={{ textDecoration: "none", m: 5 }}>
                                 <p variant="text"> Already registered ? please Login.</p>

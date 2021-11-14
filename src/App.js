@@ -9,7 +9,7 @@ import Home from './pages/Home/Home/Home';
 import Products from './pages/Home/Products/Products';
 import AddProduct from './pages/Private/AddProduct/AddProduct';
 import Login from './pages/Login/Login/Login';
-import AddReview from './pages/Private/AddReview/AddReview';
+import AddReview from './pages/DashBoard/AddReview/AddReview';
 import AllProducts from './pages/AllProducts/AllProducts/AllProducts';
 import AuthProvider from './contexts/AuthProvider';
 import NotFound from './pages/NotFound/NotFound';
@@ -19,7 +19,7 @@ import Menubar from './pages/Home/Menubar/Menubar';
 import Footer from './pages/Home/Footer/Footer';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import MyOrders from './pages/Private/MyOrders/MyOrders';
-import Reviews from './pages/DashBoard/Reviews/Reviews';
+import Reviews from './pages/Home/Reviews/Reviews';
 import DashBoard from './pages/DashBoard/DashBoard/DashBoard';
 
 function App() {

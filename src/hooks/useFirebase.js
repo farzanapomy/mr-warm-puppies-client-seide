@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, signOut } from 'firebase/auth'
 import { useEffect, useState } from 'react';
 import initializeAuthentication from '../pages/Login/Firebase/firebase.init';
 
@@ -10,20 +10,34 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
-    const registerUser = (email, password) => {
+    const registerUser = (email, password, name, history) => {
+        setIsLoading(true)
+        if (password < 6) {
+            setError('Password should be grater than 6 character')
+            return;
+        }
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                if (password < 6) {
-                    setError('password should be 6 characters');
-                }
+                setError('');
+                const newUser = { email, displayName: name }
+                setUser(newUser);
+                handleUserInfo(user.email, user.displayName);
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                   
+                }).catch((error) => {
+                });
+
+                history.replace('/')
                 console.log(email, password)
+                console.log(user)
             })
             .catch((error) => {
                 setError(error.message);
             })
             .finally(() => setIsLoading(false))
-        console.log(email, password)
 
     }
 
@@ -37,7 +51,7 @@ const useFirebase = () => {
                 history.replace(destination);
             })
             .catch((error) => {
-                setError( error.message);
+                setError(error.message);
             })
             .finally(() => setIsLoading(false))
     }
@@ -69,6 +83,22 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth])
 
+
+
+    
+    const handleUserInfo = email => {
+        fetch('https://powerful-ravine-08255.herokuapp.com/users', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({ email }),
+        })
+            .then(res => res.json()
+                .then(data => console.log(data))
+            )
+
+    }
 
 
     return {
