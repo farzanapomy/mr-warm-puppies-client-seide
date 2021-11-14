@@ -11,10 +11,12 @@ import {
 } from "react-router-dom";
 import AddReview from '../AddReview/AddReview';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddProduct from '../../Private/AddProduct/AddProduct';
 
 const DashBoard = () => {
     const { path, url } = useRouteMatch();
-    const { logOut } = useAuth();
+    const { logOut, admin } = useAuth();
+
 
     return (
         <div className="container">
@@ -22,7 +24,7 @@ const DashBoard = () => {
                 <div className="row">
                     <div className="col-md-3 ">
                         <div className="user-dashboard">
-                            <h5 style={{margin:"15px",padding:"15px",textDecoration:""}}>User Dashboard</h5>
+                            <h5 style={{ margin: "15px", padding: "15px", textDecoration: "" }}>User Dashboard</h5>
                             <Link to={`${url}`}>
                                 <li className="dashboard-menu mt-5">My Orders</li>
                             </Link>
@@ -34,11 +36,20 @@ const DashBoard = () => {
                             <Link to={`${url}/addReview`}>
                                 <li className="dashboard-menu mt-5">AddReview</li>
                             </Link>
-                            <Link to={`${url}/makeAdmin`}>
-                                <li className="dashboard-menu mt-5">MakeAdmin</li>
-                            </Link>
 
-                            <button onClick={logOut} style={{backgroundColor:"blue" ,color:'white'}} className='btn px-4 m-3'>LogOut</button>
+                            {
+                                admin && 
+                                <div>
+                                    <Link to={`${url}/makeAdmin`}>
+                                        <li className="dashboard-menu mt-5">MakeAdmin</li>
+                                    </Link>
+                                    <Link to={`${url}/addProduct`}>
+                                        <li className="dashboard-menu mt-5">AddProduct</li>
+                                    </Link>
+                                </div>
+                            }
+
+                            <button onClick={logOut} style={{ backgroundColor: "blue", color: 'white' }} className='btn px-4 m-3'>LogOut</button>
                         </div>
                     </div>
                     <div className="col-md-9">
@@ -46,14 +57,17 @@ const DashBoard = () => {
                             <Route exact path={path}>
                                 <MyOrders></MyOrders>
                             </Route>
-                            <Route  path={`${path}/addReview`}>
+                            <Route path={`${path}/addReview`}>
                                 <AddReview></AddReview>
                             </Route>
-                            <Route  path={`${path}/payment`}>
+                            <Route path={`${path}/payment`}>
                                 <Payment></Payment>
                             </Route>
-                            <Route  path={`${path}/makeAdmin`}>
+                            <Route path={`${path}/makeAdmin`}>
                                 <MakeAdmin></MakeAdmin>
+                            </Route>
+                            <Route path={`${path}/addProduct`}>
+                                <AddProduct></AddProduct>
                             </Route>
                         </Switch>
                     </div>

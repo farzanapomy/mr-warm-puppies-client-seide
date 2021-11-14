@@ -1,9 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2'
+import useAuth from '../../../hooks/useAuth';
 
 
 const MakeAdmin = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit ,reset} = useForm();
+  
 
     const onSubmit = (email) => {
         const user = { email }
@@ -15,7 +18,17 @@ const MakeAdmin = () => {
             body: JSON.stringify(email)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.modifiedCount) {
+                    Swal.fire(
+                        'WOW!',
+                        'You Successfully made a person as admin!',
+                        'Thank You'
+                    )
+                    reset();
+                }
+                console.log(data)
+            })
 
 
         // console.log(data)
@@ -32,6 +45,7 @@ const MakeAdmin = () => {
                     {/* <p>style={{ marginTop: '200px' }}</p> */}
                     <input className='btn btn-warning my-3 px-5' type="submit" value="Make Admin" />
                 </form>
+               
             </div>
         </div>
     );

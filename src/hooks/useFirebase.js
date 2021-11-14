@@ -8,6 +8,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
     const registerUser = (email, password, name, history) => {
@@ -26,7 +27,7 @@ const useFirebase = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
-                   
+
                 }).catch((error) => {
                     // An error occurred
                     // ...
@@ -86,6 +87,18 @@ const useFirebase = () => {
     }, [auth])
 
 
+    // check admin 
+    useEffect(() => {
+        const url=`https://powerful-ravine-08255.herokuapp.com/users/${user.email}`
+        fetch(url)
+        .then(res=>res.json())
+        .then(data=>setAdmin(data.admin))
+    }, [user.email])
+
+
+
+
+    // get users 
     const handleUserInfo = email => {
         fetch('https://powerful-ravine-08255.herokuapp.com/users', {
             method: "POST",
@@ -103,6 +116,7 @@ const useFirebase = () => {
 
     return {
         user,
+        admin,
         error,
         registerUser,
         isLoading,
