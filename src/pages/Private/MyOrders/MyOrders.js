@@ -10,22 +10,44 @@ const MyOrders = () => {
             .then(data => setOrders(data));
     }, [user.email])
 
-    return (
-        <div>
-            <h2>Your total orders {orders.length}</h2>
+    const handleDelete = (id) => {
+        const confirmation = window.confirm('Dear Customer , do you want to delete this order?')
+        if (confirmation) {
+            const url = `https://powerful-ravine-08255.herokuapp.com/myOrders/${id}`;
+            fetch(url, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        alert('Successfully Deleted Your Booking');
+                        const rest = orders.filter(order => order._id !== id);
+                        setOrders(rest);
+                    }
 
-            {
-                orders.map(order =>
-                    <div className='order-container' 
-                    key={order._id}>
-                        <div className="row">
-                            <div className="col-md-4">
-                                <img src={order?.img} alt="" />
-                                <h2>{order.email}</h2>
-                            </div>
-                        </div>
-                    </div>)
-            }
+                    console.log(data)
+                })
+            console.log(id)
+        }
+    }
+
+
+
+    return (
+        <div className=''>
+            <h2>Your total orders {orders.length}</h2>
+            <div className="row container">
+                {
+                    orders.map(order =>
+                        <div className='col-md-5 m-4 bg-primary p-4'
+                            key={order._id}>
+                            <h6>Product Name{order.text}</h6>
+                            <p>Phone: {order.number}</p>
+                            <p>Ordered By :{order.email}</p>
+                            <button onClick={() => handleDelete(order._id)} className='btn btn-warning '>Delete Order</button>
+                        </div>)
+                }
+            </div>
         </div>
     );
 };

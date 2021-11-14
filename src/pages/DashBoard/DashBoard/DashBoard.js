@@ -5,6 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import MyOrders from '../../Private/MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import Reviews from '../Reviews/Reviews';
+import './DashBoard.css'
 
 import {
     BrowserRouter as Router,
@@ -17,38 +18,50 @@ const DashBoard = () => {
     const { logOut } = useAuth();
 
     return (
-        <div id='dashBoard' className='container bg-dark text-light'>
-            <div className="dashboard-container">
+        <div >
+            <div className="dashboard-container ">
                 <div className="row">
-                    <div className="col-md-3">
-                        <Link to={`${url}`}>
-                            <li>My Orders</li>
-                        </Link>
-                        <Link to={`${url}/payment`}>
-                            <li>Payment</li>
-                        </Link>
-                        <Link to={`${url}/reviews`}>
-                            <li> Product Review</li>
-                        </Link>
-                        <Button onClick={logOut}>
-                            LogOut
-                        </Button>
+                    <div className="col-md-3 ">
+                        <div className="user-dashboard">
+                            <h5>Dashboard</h5>
+                            <Link to={`${url}`}>
+                                <li className="dashboard-menu mt-5">Book</li>
+                            </Link>
+
+                            <Link to={`${url}/BookingList`}>
+                                <li className="dashboard-menu mt-5">Booking list</li>
+                            </Link>
+
+                            <Link to={`${url}/review`}>
+                                <li className="dashboard-menu mt-5">Review</li>
+                            </Link>
+                            
+
+                        </div>
                     </div>
-                    <div className="com-md-8">
-                        <Route exact path={path}>
+                    <div className="col-md-9">
+                        <Switch>
+                            <Route exact path={path}>
                             <MyOrders></MyOrders>
-                        </Route>
-                        <Route exact path={`${path}/review`}>
+                            </Route>
+                            <Route exact path={`${path}/reviews`}>
                             <Reviews></Reviews>
-                        </Route>
-                        <Route exact path={`${path}/payment`}>
+                            </Route>
+                            <Route exact path={`${path}/BookingList`}>
+                               <Reviews></Reviews>
+                            </Route>
+                            <Route exact path={`${path}/makeAdmin`}>
                             <Payment></Payment>
-                        </Route>
+                            </Route>
+                          
+                        </Switch>
                     </div>
                 </div>
             </div>
+       
 
-        </div>
+
+        </div >
     );
 };
 
