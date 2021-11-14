@@ -25,7 +25,7 @@ const Banner = () => {
                         className="d-block w-100 img-fluid "
                         src={bg1}
                         alt=""
-                    />
+                    />fire
                     <Carousel.Caption>
                         <h1>Hello kitty lover 🐈</h1>
                         <h6>Your life is gonna be a lot more fun</h6>

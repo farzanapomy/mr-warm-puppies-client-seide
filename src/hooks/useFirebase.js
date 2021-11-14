@@ -28,6 +28,8 @@ const useFirebase = () => {
                 }).then(() => {
                    
                 }).catch((error) => {
+                    // An error occurred
+                    // ...
                 });
 
                 history.replace('/')
@@ -84,16 +86,13 @@ const useFirebase = () => {
     }, [auth])
 
 
-
-
-    const handleUserInfo = (email,displayName) => {
-        const user={email,displayName}
+    const handleUserInfo = email => {
         fetch('https://powerful-ravine-08255.herokuapp.com/users', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify({ user }),
+            body: JSON.stringify({ email }),
         })
             .then(res => res.json()
                 .then(data => console.log(data))
