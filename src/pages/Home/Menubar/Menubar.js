@@ -28,7 +28,7 @@ const Menubar = () => {
                         <Nav.Link className='nav-text' as={HashLink} to="/allproducts">Explore</Nav.Link>
                         <Nav.Link className='nav-text' as={HashLink} to="/home#reviews">Reviews</Nav.Link>
 
-                        {user.email && <Nav.Link className='nav-text' as={HashLink} to="/home#products">DashBoard</Nav.Link>}
+                        {user.email && <Nav.Link className='nav-text' as={HashLink} to="/dashBoard">DashBoard</Nav.Link>}
                         <Nav.Link className='nav-text' as={HashLink} to="/about">About US</Nav.Link>
 
                     </Navbar.Collapse>

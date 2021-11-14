@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import About from './pages/Home/About/About';
 import Home from './pages/Home/Home/Home';
-import Reviews from './pages/Home/Reviews/Reviews';
 import Products from './pages/Home/Products/Products';
 import AddProduct from './pages/Private/AddProduct/AddProduct';
 import Login from './pages/Login/Login/Login';
@@ -19,6 +18,9 @@ import PlaceOrder from './pages/Private/PlaceOrder/PlaceOrder';
 import Menubar from './pages/Home/Menubar/Menubar';
 import Footer from './pages/Home/Footer/Footer';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
+import MyOrders from './pages/Private/MyOrders/MyOrders';
+import Reviews from './pages/DashBoard/Reviews/Reviews';
+import DashBoard from './pages/DashBoard/DashBoard/DashBoard';
 
 function App() {
   return (
@@ -55,8 +57,14 @@ function App() {
             <Route path="/allProducts">
               <AllProducts />
             </Route>
+            <PrivateRoute path="/myOrders">
+              <MyOrders />
+            </PrivateRoute>
             <Route path="/placeOrder">
               <PlaceOrder />
+            </Route>
+            <Route path="/dashBoard">
+              <DashBoard />
             </Route>
             <Route exact path="/register">
               <Register />
