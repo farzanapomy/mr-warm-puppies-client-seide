@@ -5,7 +5,7 @@ const MyOrders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${user.email}`)
+        fetch(`https://powerful-ravine-08255.herokuapp.com/myOrders/${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [user.email])

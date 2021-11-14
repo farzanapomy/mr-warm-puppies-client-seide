@@ -11,10 +11,10 @@ const PlaceOrder = () => {
     const [products, setProducts] = useState({});
     const { Id } = useParams()
 
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleProduct/${Id}`)
+        fetch(`https://powerful-ravine-08255.herokuapp.com/singleProduct/${Id}`)
             .then(res => res.json())
             .then(data => setProducts(data))
 
@@ -22,7 +22,7 @@ const PlaceOrder = () => {
 
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/orders', data)
+        axios.post('https://powerful-ravine-08255.herokuapp.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire(
@@ -65,8 +65,8 @@ const PlaceOrder = () => {
                                 className='p-2 w-100 input-field'
                                 defaultValue={user.email}
                             />
-                           
-                           
+
+
                             <input
                                 {...register("address", { required: true })}
                                 placeholder='Enter Your Address'
