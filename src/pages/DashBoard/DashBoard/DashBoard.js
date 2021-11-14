@@ -10,6 +10,7 @@ import {
     Route
 } from "react-router-dom";
 import AddReview from '../AddReview/AddReview';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 
 const DashBoard = () => {
     const { path, url } = useRouteMatch();
@@ -33,6 +34,9 @@ const DashBoard = () => {
                             <Link to={`${url}/addReview`}>
                                 <li className="dashboard-menu mt-5">AddReview</li>
                             </Link>
+                            <Link to={`${url}/makeAdmin`}>
+                                <li className="dashboard-menu mt-5">MakeAdmin</li>
+                            </Link>
 
                             <button onClick={logOut} style={{backgroundColor:"blue" ,color:'white'}} className='btn px-4 m-3'>LogOut</button>
                         </div>
@@ -42,14 +46,14 @@ const DashBoard = () => {
                             <Route exact path={path}>
                                 <MyOrders></MyOrders>
                             </Route>
-                            <Route exact path={`${path}/addReview`}>
+                            <Route  path={`${path}/addReview`}>
                                 <AddReview></AddReview>
                             </Route>
-                            <Route exact path={`${path}/payment`}>
+                            <Route  path={`${path}/payment`}>
                                 <Payment></Payment>
                             </Route>
-                            <Route exact path={`${path}/makeAdmin`}>
-                                {/* <MakeAdmin></MakeAdmin> */}
+                            <Route  path={`${path}/makeAdmin`}>
+                                <MakeAdmin></MakeAdmin>
                             </Route>
                         </Switch>
                     </div>

@@ -63,9 +63,9 @@ function App() {
             <Route path="/placeOrder">
               <PlaceOrder />
             </Route>
-            <Route path="/dashBoard">
+            <PrivateRoute path="/dashBoard">
               <DashBoard />
-            </Route>
+            </PrivateRoute>
             <Route exact path="/register">
               <Register />
             </Route>

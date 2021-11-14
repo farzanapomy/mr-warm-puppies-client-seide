@@ -41,9 +41,7 @@ const Menubar = () => {
                                 </h6>
                             }
                         </Navbar.Text>
-                        {/* <Navbar.Text>
-                            <img className='w-50 rounded rounded-pill' src={user.photoURL} alt="" />
-                        </Navbar.Text> */}
+                      
                         <Navbar.Collapse className='me-end'>
                             {
                                 user.email ?
