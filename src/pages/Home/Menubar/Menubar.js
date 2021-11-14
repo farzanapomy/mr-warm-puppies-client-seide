@@ -15,8 +15,8 @@ const Menubar = () => {
     return (
 
         <>
-            <Navbar bg="dark" className='mb-2' variant="dark" sticky="top" collapseOnSelect expand="lg">
-                <Container>
+            <Navbar bg="dark" className='mb-2 ' variant="dark" sticky="top" collapseOnSelect expand="lg">
+                <Container className=''>
                     <Navbar.Brand className='logo border-0 nav-img' href="/home#home">
                         <img className='my-2 bg-white rounded ' src={logo} alt="" />
                     </Navbar.Brand>

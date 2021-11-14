@@ -5,12 +5,12 @@ import './AddProduct.css'
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
 
+    const onSubmit = data => {
         axios.post('https://powerful-ravine-08255.herokuapp.com/products', data)
             .then(res => {
 
-                if (data.insertedId) {
+                if (res.data.insertedId) {
                     alert('Your Data Successfully added')
                     return;
                 }

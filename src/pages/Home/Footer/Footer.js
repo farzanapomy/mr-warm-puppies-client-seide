@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
 
 
-            <footer className="new_footer_area bg_color">
+            <footer className="new_footer_area bg_color my-5 bg-success container">
                 <div className="new_footer_top">
                     <div className="container">
                         <div className="row">
@@ -22,12 +22,11 @@ const Footer = () => {
                                 </div>
                             </div>
                             <div className="col-lg-3 col-md-6">
-                                <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style={{visibility:'visible' ,animationDelay: '0.4s',animationName:'fadeInLeft'  }} >
+                                <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style={{visibility:'visible' ,animationDelay: '0.4s',animationName:'fadeInLeft' ,textDecoration:'none' }} >
                                     <h3 className="f-title f_600 t_color f_size_18">Download</h3>
                                     <ul className="list-unstyled f_list">
-                                        <li><a href="#">Company</a></li>
+                                        <li><a href="#">Mr Worm Puppies</a></li>
                                         <li><a href="#">Android App</a></li>
-                                        <li><a href="#">ios App</a></li>
                                         <li><a href="#">Desktop</a></li>
                                         <li><a href="#">Projects</a></li>
                                         <li><a href="#">My tasks</a></li>
