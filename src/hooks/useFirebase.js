@@ -1,6 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, signOut } from 'firebase/auth'
 import { useEffect, useState } from 'react';
 import initializeAuthentication from '../pages/Login/Firebase/firebase.init';
+import { Rating } from 'react-simple-star-rating'
 
 initializeAuthentication();
 
@@ -9,6 +10,7 @@ const useFirebase = () => {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
+   
 
     const auth = getAuth();
     const registerUser = (email, password, name, history) => {
@@ -50,8 +52,7 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                const destination = location?.start?.from || "/";
-                history.replace(destination);
+
             })
             .catch((error) => {
                 setError(error.message);
@@ -71,7 +72,7 @@ const useFirebase = () => {
 
     }
 
-
+  
 
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -89,10 +90,10 @@ const useFirebase = () => {
 
     // check admin 
     useEffect(() => {
-        const url=`https://powerful-ravine-08255.herokuapp.com/users/${user.email}`
+        const url = `https://powerful-ravine-08255.herokuapp.com/users/${user.email}`
         fetch(url)
-        .then(res=>res.json())
-        .then(data=>setAdmin(data.admin))
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
     }, [user.email])
 
 

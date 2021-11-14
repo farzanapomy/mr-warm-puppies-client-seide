@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import AllProducts from '../../AllProducts/AllProducts/AllProducts';
 import Product from '../../SingleItems/Product/Product';
 import './Products.css'
 
 
 const Products = () => {
     const [products, setProducts] = useState([]);
-
 
 
     useEffect(() => {
@@ -19,7 +17,8 @@ const Products = () => {
         <div id='products'>
             <h3>Our Product</h3>
 
-            <div className=' products'>
+
+            <div className=' products' >
                 {
                     products.slice(0, 6).map(product => <Product
                         key={product._id}
@@ -27,6 +26,7 @@ const Products = () => {
                     ></Product>)
                 }
             </div>
+
 
 
 
