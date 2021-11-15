@@ -5,9 +5,7 @@ import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2'
 import './PlaceOrder.css'
-import Home from '../../Home/Home/Home';
 import { Link } from 'react-router-dom';
-import { borderRadius } from '@mui/system';
 
 const PlaceOrder = () => {
     const { user } = useAuth();

@@ -14,6 +14,7 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProduct from '../../Private/AddProduct/AddProduct';
 import ManageOrder from '../../Private/ManageOrder/ManageOrder';
 import ManagerProduct from '../../Private/ManagerProduct/ManagerProduct';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 const DashBoard = () => {
     const { path, url } = useRouteMatch();
@@ -82,18 +83,18 @@ const DashBoard = () => {
                             <Route path={`${path}/payment`}>
                                 <Payment></Payment>
                             </Route>
-                            <Route path={`${path}/makeAdmin`}>
+                            <AdminRoute path={`${path}/makeAdmin`}>
                                 <MakeAdmin></MakeAdmin>
-                            </Route>
-                            <Route path={`${path}/addProduct`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/addProduct`}>
                                 <AddProduct></AddProduct>
-                            </Route>
-                            <Route path={`${path}/managerOrder`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/managerOrder`}>
                                 <ManageOrder></ManageOrder>
-                            </Route>
-                            <Route path={`${path}/managerProduct`}>
+                            </AdminRoute>
+                            <AdminRoute path={`${path}/managerProduct`}>
                                 <ManagerProduct></ManagerProduct>
-                            </Route>
+                            </AdminRoute>
                         </Switch>
                     </div>
                 </div>

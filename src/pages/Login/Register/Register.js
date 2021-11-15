@@ -83,11 +83,11 @@ const Register = () => {
                             isLoading && <img src={loader} alt="" />
                         }
                         {
-                            user?.email && <Alert severity="success">User Created successfully</Alert>
+                            user?.email && <p severity="success">User Created successfully</p>
                         }
                         {
 
-                            error && <Alert severity="error">{error}</Alert>
+                            error && <p severity="error">{error}</p>
 
                         }
 

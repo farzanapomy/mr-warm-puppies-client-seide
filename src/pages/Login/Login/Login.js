@@ -1,13 +1,13 @@
-import { CircularProgress, Grid as div, TextField as input, Typography as h1 } from '@mui/material';
 import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
-import { Alert} from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import login from '../../../images/login.jpg'
 import useAuth from '../../../hooks/useAuth';
 import Menubar from '../../Home/Menubar/Menubar';
 import Footer from '../../Home/Footer/Footer';
+import loder from '../../../images/loader.gif'
+
 
 
 const Login = () => {
@@ -45,29 +45,29 @@ const Login = () => {
                         </h1>
                         <form onSubmit={handleLogInSubmit}>
                             <input
-                               
+
                                 label="Your Email"
                                 name="email"
                                 onBlur={onBlurHandler}
-                                />
+                            />
                             <input
-                               
+
                                 type='password'
                                 name="password"
                                 onBlur={onBlurHandler}
                                 label="Password"
-                                />
+                            />
                             <br />
-                            <Button type="submit" style={{backgroundColor:'tomato',padding:'10px 30px' ,margin:'10px',borderRadius:'10px',border:'none' }}>Login</Button>
+                            <Button type="submit" style={{ backgroundColor: 'tomato', padding: '10px 30px', margin: '10px', borderRadius: '10px', border: 'none' }}>Login</Button>
                             {
-                                isLoading && <CircularProgress color="inherit" />
+                                isLoading && <img src={loder} alt="" />
                             }
                             {
-                                user?.email && <Alert severity="success">User Created successfully</Alert>
+                                user?.email && <p severity="success">User Created successfully</p>
 
                             }
                             {
-                                error && <Alert severity="error">{error}</Alert>
+                                error && <p severity="error">{error}</p>
 
                             }
 
