@@ -24,7 +24,7 @@ const PlaceOrder = () => {
     }, [Id])
 
     const onSubmit = data => {
-
+        data.status='Pending'
         axios.post('https://powerful-ravine-08255.herokuapp.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
@@ -65,7 +65,7 @@ const PlaceOrder = () => {
 
                             <input
                                 {...register("name", { required: true })}
-                                placeholder='Enter email'
+                                placeholder='Enter Name'
                                 className='p-2 w-100 input-field'
                                 defaultValue={user.displayName}
                             />

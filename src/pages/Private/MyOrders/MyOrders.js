@@ -11,7 +11,8 @@ const MyOrders = () => {
             .then(data => setOrders(data));
     }, [user.email])
 
-    const handleDelete = (id) => {
+    const handleDelete = (id,data) => {
+        data.status='Pending'
         const confirmation = window.confirm('Dear Customer , do you want to delete this order?')
         if (confirmation) {
             const url = `https://powerful-ravine-08255.herokuapp.com/myOrders/${id}`;
@@ -49,6 +50,7 @@ const MyOrders = () => {
                             <h6>Product Name{order.text}</h6>
                             <p>Phone: {order.number}</p>
                             <p>Ordered By :{order.email}</p>
+                            <p>Order state :{order.status}</p>
                             <button onClick={() => handleDelete(order._id)} className='btn btn-warning '>Delete Order</button>
                         </div>)
                 }
