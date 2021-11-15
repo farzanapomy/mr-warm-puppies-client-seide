@@ -13,7 +13,7 @@ const MyOrders = () => {
     }, [user.email])
 
     const handleDelete = (id,data) => {
-        data.status='Pending'
+        // data.status='pending'
         const confirmation = window.confirm('Dear Customer , do you want to delete this order?')
         if (confirmation) {
             const url = `https://powerful-ravine-08255.herokuapp.com/myOrders/${id}`;
