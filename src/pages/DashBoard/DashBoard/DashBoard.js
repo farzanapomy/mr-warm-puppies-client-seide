@@ -13,6 +13,7 @@ import AddReview from '../AddReview/AddReview';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProduct from '../../Private/AddProduct/AddProduct';
 import ManageOrder from '../../Private/ManageOrder/ManageOrder';
+import ManagerProduct from '../../Private/ManagerProduct/ManagerProduct';
 
 const DashBoard = () => {
     const { path, url } = useRouteMatch();
@@ -60,6 +61,9 @@ const DashBoard = () => {
                                     <Link to={`${url}/managerOrder`}>
                                         <li className="dashboard-menu mt-5">Manage All Order</li>
                                     </Link>
+                                    <Link to={`${url}/managerProduct`}>
+                                        <li className="dashboard-menu mt-5">Manage All Product</li>
+                                    </Link>
                                 </div>
                             }
 
@@ -86,6 +90,9 @@ const DashBoard = () => {
                             </Route>
                             <Route path={`${path}/managerOrder`}>
                                 <ManageOrder></ManageOrder>
+                            </Route>
+                            <Route path={`${path}/managerProduct`}>
+                                <ManagerProduct></ManagerProduct>
                             </Route>
                         </Switch>
                     </div>

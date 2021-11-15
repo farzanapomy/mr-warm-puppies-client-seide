@@ -8,7 +8,6 @@ import useAuth from '../../../hooks/useAuth';
 const ManageOrder = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
-    const [status, setStatus] = useState('');
     const { register, handleSubmit } = useForm();
     const [orderId, setOrderId] = useState("");
 
