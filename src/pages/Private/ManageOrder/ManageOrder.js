@@ -96,7 +96,7 @@ const ManageOrder = () => {
                                             {...register("status")}
                                         >
                                             <option value={order?.status}>{order?.status}</option>
-                                            <option value="approve">Approve</option>
+                                            <option value="approve">Shipped</option>
                                         </select>
                                         <input type="submit" />
                                     </form>

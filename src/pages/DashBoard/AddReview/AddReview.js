@@ -56,15 +56,15 @@ const AddReview = () => {
 
                 <input type="number"
                     required
-                    {...register("ratting", )} 
-                    
-                    />
+                    {...register("ratting", { min: 0, max: 5 })}
+
+                />
 
                 <input type="submit" />
             </form>
         </div>
     );
-    //ratting max 5 thik korte hobe
+
 };
 
 export default AddReview;

@@ -24,8 +24,7 @@ const Menubar = () => {
 
                     <Navbar.Collapse className="justify-content-end ">
                         <Nav.Link className='nav-text' as={HashLink} to="/home#home">Home</Nav.Link>
-                        <Nav.Link className='nav-text' as={HashLink} to="/home#products">Products</Nav.Link>
-                        <Nav.Link className='nav-text' as={HashLink} to="/allproducts">Explore</Nav.Link>
+                        <Nav.Link className='nav-text' as={HashLink} to="/allProducts">All Product</Nav.Link>
                         <Nav.Link className='nav-text' as={HashLink} to="/home#reviews">Reviews</Nav.Link>
 
                         {user.email && <Nav.Link className='nav-text' as={HashLink} to="/dashBoard">DashBoard</Nav.Link>}
