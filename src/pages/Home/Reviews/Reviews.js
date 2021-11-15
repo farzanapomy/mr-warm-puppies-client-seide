@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Rating from 'react-rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faStar} from '@fortawesome/free-solid-svg-icons'
-import { color } from '@mui/system';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])

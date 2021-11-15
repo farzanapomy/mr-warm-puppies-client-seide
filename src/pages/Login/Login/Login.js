@@ -24,13 +24,11 @@ const Login = () => {
 
     const handleLogInSubmit = e => {
         loginUser(logInData.email, logInData.password, location, history)
-        const destination = location?.start?.from || "/allProducts/singleProduct";
-        console.log(destination)
-        history.replace(destination);
+       
         e.preventDefault()
         e.target.reset()
     }
-
+ 
     return (
         <Container>
             <Grid>
@@ -40,7 +38,7 @@ const Login = () => {
                     </Grid>
                     <Grid item sx={{ mt: 8 }} xs={12} md={6}>
                         <Typography variant="body1" gutterBottom>
-                            Please Login
+                           Please Login 
                         </Typography>
                         <form onSubmit={handleLogInSubmit}>
                             <TextField
@@ -58,7 +56,7 @@ const Login = () => {
                                 onBlur={onchangeHandler}
                                 label="Password"
                                 variant="standard" />
-                            <br />
+                                <br />
                             <Button type="submit" sx={{ width: '75%', m: 1 }} variant="contained">Login</Button>
                             {
                                 isLoading && <CircularProgress color="inherit" />
@@ -71,13 +69,13 @@ const Login = () => {
                                 error && <Alert severity="error">{error}</Alert>
 
                             }
-
-                            <NavLink to='/register' style={{ textDecoration: "none", display: 'block', margin: '5px' }}>
+                            
+                            <NavLink to='/register' style={{ textDecoration: "none" ,display:'block', margin:'5px' }}>
                                 <p variant="text">  New User ? please Register.</p>
                             </NavLink>
                         </form>
-                        <br />
-
+                     <br />
+                       
 
                     </Grid>
 

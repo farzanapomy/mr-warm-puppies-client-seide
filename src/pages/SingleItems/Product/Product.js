@@ -1,4 +1,4 @@
-import React ,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Product.css'
@@ -13,22 +13,21 @@ const Product = ({ product }) => {
     }, [])
 
     return (
-        <div id='products' className=' container full-card'>
-           
-                <div className='container w-75 single-card' data-aos='flip-left'>
-                    <Card className=" single-item p-3">
-                        <Card.Img className='mx-auto' src={img} alt="Card image" />
-                        <Card.Title>{name}</Card.Title>
-                        <Card.Text>
-                            {description}
-                        </Card.Text>
-                        <Card.Text>Price :${price}</Card.Text>
-                        <Link to={`/products/${_id}`}>
-                            <button className='btn btn-warning'>Purchase Now</button>
-                        </Link>
-                    </Card>
-                </div>
-          
+        <div id='products' className=' col-md-4 '>
+            <Card className=''>
+                <Card className="mx-auto  single-item g-5" data-aos='flip-left'>
+                    <Card.Img className='mx-auto' src={img} alt="Card image" />
+                    <Card.Title>{name}</Card.Title>
+                    <Card.Text className="fs-2">Price :${price}</Card.Text>
+                    <Card.Text>
+                        {description}
+                    </Card.Text>
+                    <Link to={`/products/${_id}`} >
+                        <button className='btn btn-warning m-3'>Purchase Now</button>
+                    </Link>
+                </Card>
+
+            </Card>
         </div>
     );
 };

@@ -1,7 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, signOut } from 'firebase/auth'
 import { useEffect, useState } from 'react';
 import initializeAuthentication from '../pages/Login/Firebase/firebase.init';
-import { Rating } from 'react-simple-star-rating'
 
 initializeAuthentication();
 
@@ -10,7 +9,7 @@ const useFirebase = () => {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
-   
+
 
     const auth = getAuth();
     const registerUser = (email, password, name, history) => {
@@ -52,6 +51,11 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                if (admin) {
+                    const destination = location?.start?.from || "/dashboard";
+                    console.log(destination)
+                    history.replace(destination);
+                }
 
             })
             .catch((error) => {
@@ -72,7 +76,7 @@ const useFirebase = () => {
 
     }
 
-  
+
 
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {

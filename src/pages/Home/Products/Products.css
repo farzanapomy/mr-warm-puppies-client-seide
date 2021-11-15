@@ -1,8 +1,8 @@
-.products{
+/* .products{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 5px;
-    
+    padding: 0%;
     
 }
 
@@ -12,3 +12,10 @@
     grid-gap: 10px;
 }
 }
+
+@media only screen and (min-width:688px) and (max-width:990px) {
+    .products{
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 10px;
+    }
+} */
