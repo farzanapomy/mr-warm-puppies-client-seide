@@ -7,6 +7,7 @@ import { Alert, Button, Container } from 'react-bootstrap';
 import { NavLink, useHistory } from 'react-router-dom';
 import loader from '../../../images/loader.gif'
 import './Register.css'
+import Menubar from '../../Home/Menubar/Menubar';
 
 const Register = () => {
     const { user, registerUser, isLoading, error } = useAuth()
@@ -35,15 +36,16 @@ const Register = () => {
     }
 
     return (
-        <div className='container '>
+        <div className='container'>
+            <Menubar/>
             <div>
-                <div className='row register-form'>
-                    <div className='col-md-6'>
+                <div className='row register-form '>
+                    <div className='col-md-6' >
                         <img style={{ width: '100%' }} src={login} alt="" />
                     </div>
-                    <div className='col-md-6'>
+                    <div className='col-md-6 ms-end' >
                         <h1>
-                            Register
+                            Register Please
                         </h1>
                         {!isLoading && <form onSubmit={handleRegister}>
                             <input
@@ -72,7 +74,7 @@ const Register = () => {
 
                             />
                             <br />
-                            <Button type="submit">Register</Button>
+                            <Button type="submit" style={{textAlign:"left"}}>Register</Button>
                             <br />
                             <NavLink to='/login' style={{ textDecoration: "none", m: 5 }}>
                                 <p variant="text"> Already registered ? please Login.</p>

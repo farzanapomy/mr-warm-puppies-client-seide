@@ -24,6 +24,7 @@ const AddProduct = () => {
     return (
         <>
             <div className='w-75 mx-auto'>
+                <h2>Add a Product here</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input
                         {...register("name", { required: true })}

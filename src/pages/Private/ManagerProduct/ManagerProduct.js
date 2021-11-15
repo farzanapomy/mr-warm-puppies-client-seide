@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import useAuth from '../../../hooks/useAuth';
+import loader from '../../../images/loader.gif'
 
 const ManagerProduct = () => {
     const [products, setProducts] = useState([]);
+    const { isLoading } = useAuth();
+
+
     useEffect(() => {
         fetch('https://powerful-ravine-08255.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
+
+
 
     const handleDelete = (id) => {
         const confirmation = window.confirm('Dear Customer , do you want to delete this order?')
@@ -35,11 +42,15 @@ const ManagerProduct = () => {
         }
     }
 
+    if (isLoading) {
+        return <img src={loader} alt="" />
+    }
+
 
     return (
-        <div>
+        <div className=''>
             <h2>Your total orders  {products.length}</h2>
-          
+
 
             <Table striped bordered hover>
                 <thead>

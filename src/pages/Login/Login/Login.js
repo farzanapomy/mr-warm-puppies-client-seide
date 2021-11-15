@@ -6,7 +6,7 @@ import login from '../../../images/login.jpg'
 import useAuth from '../../../hooks/useAuth';
 import Menubar from '../../Home/Menubar/Menubar';
 import Footer from '../../Home/Footer/Footer';
-import loder from '../../../images/loader.gif'
+import loader from '../../../images/loader.gif'
 
 
 
@@ -39,7 +39,7 @@ const Login = () => {
                     <div className='col-md-6'>
                         <img style={{ width: '100%' }} src={login} alt="" />
                     </div>
-                    <div className='col-md-6 mx-auto'>
+                    <div className='col-md-6 me-end'>
                         <h1>
                             Please Login
                         </h1>
@@ -60,7 +60,7 @@ const Login = () => {
                             <br />
                             <Button type="submit" style={{ backgroundColor: 'tomato', padding: '10px 30px', margin: '10px', borderRadius: '10px', border: 'none' }}>Login</Button>
                             {
-                                isLoading && <img src={loder} alt="" />
+                                isLoading && <img src={loader} alt="" />
                             }
                             {
                                 user?.email && <p severity="success">User Created successfully</p>

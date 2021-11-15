@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-
 import Swal from 'sweetalert2'
 import useAuth from '../../../hooks/useAuth';
+import loader from '../../../images/loader.gif'
+
 
 const ManageOrder = () => {
-    const { user } = useAuth();
+    const { user, isLoading } = useAuth();
     const [orders, setOrders] = useState([]);
     const { register, handleSubmit } = useForm();
     const [orderId, setOrderId] = useState("");
-
-
+    
+    
+    
     useEffect(() => {
         fetch(`https://powerful-ravine-08255.herokuapp.com/managerOrder`)
-            .then(res => res.json())
-            .then(data => setOrders(data));
+        .then(res => res.json())
+        .then(data => setOrders(data));
     }, [user.email])
+    
+    if (isLoading) {
+        return <img src={loader} alt="" />
+    }
+
 
     const handleDelete = (id) => {
         const confirmation = window.confirm('Dear Customer , do you want to delete this order?')
@@ -63,7 +70,7 @@ const ManageOrder = () => {
     return (
         <div>
             <div className=''>
-                <h2>Your total orders  {orders.length}</h2>
+                
                 <h1>All orders {orders.length}</h1>
 
                 <Table striped bordered hover>
@@ -95,7 +102,7 @@ const ManageOrder = () => {
                                             {...register("status")}
                                         >
                                             <option value={order?.status}>{order?.status}</option>
-                                            <option value="approve">Shipped</option>
+                                            <option value="Shipped">Shipped</option>
                                         </select>
                                         <input type="submit" />
                                     </form>

@@ -35,6 +35,7 @@ const MakeAdmin = () => {
     }
     return (
         <div>
+                <h2>Make An Admin</h2>
             <div className='w-75 mx-auto mt-5 d-flex justify-content-center ' >
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input
