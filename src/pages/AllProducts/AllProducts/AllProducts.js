@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Menubar from '../../Home/Menubar/Menubar';
 import AllProduct from '../AllProduct/AllProduct';
 
 const AllProducts = ({ product }) => {
@@ -13,15 +14,15 @@ const AllProducts = ({ product }) => {
     }, [])
 
     return (
-        <div>
-           
-            <div className='row'>
-
+        <div className="container">
+        <Menubar></Menubar>
+            <div className='row g-2 '>
+                <h2 className='my-2 '>All Products</h2>
                 {
                     products.map(allProduct => <AllProduct
                         key={allProduct._id}
                         allProduct={allProduct}
-                        >
+                    >
                     </AllProduct>)
                 }
             </div>

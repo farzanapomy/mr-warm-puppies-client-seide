@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Rating from 'react-rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser,faStar} from '@fortawesome/free-solid-svg-icons'
+import { faUser, faStar } from '@fortawesome/free-solid-svg-icons'
+import { Image } from 'react-bootstrap';
+import './Reviews.css'
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
-    const element1 = <FontAwesomeIcon icon={faStar} style={{color:"#FF9529"}}/>
-    const element2 = <FontAwesomeIcon icon={faStar} style={{color:"#FFDF00"}}/>
+    const element1 = <FontAwesomeIcon icon={faStar} style={{ color: "#FF9529" }} />
+    const element2 = <FontAwesomeIcon icon={faStar} style={{ color: "#FFDF00" }} />
 
     useEffect(() => {
         fetch('https://powerful-ravine-08255.herokuapp.com/reviews')
@@ -15,23 +17,26 @@ const Reviews = () => {
     }, [])
 
     return (
-        <div id='reviews' className='container'>
-            <h1>Client Testimonials</h1>
-            <p>See what people are saying about us.</p>
+        <div id='reviews' className='container my-5'>
+            <div className='mb-3'>
+                <h1>Client Testimonials</h1>
+                <p>See what people are saying about us.</p>
+            </div>
             <div className="row ">
                 {
                     reviews.map(review =>
-                        <div className='col-md-4 '
+                        <div className=' col-md-3 m-2 border p-2 review-item'
                             key={review._id}
                         >
-                            <img className='img-fluid w-50' src={review.image} alt="" />
-                            <h2>{review.name}</h2>
-                            <p>{review.email}</p>
-                            <h2>{review.description}</h2>
+                            <Image src={review.image} className='img-fluid w-25 p-2 ' roundedCircle />
+
+                            <h6>{review.name}</h6>
+                            <p>{review.text}</p>
+                            <p>{review.description}</p>
                             <Rating readonly
-                            initialRating={review.ratting}
-                            fullSymbol={element1}
-                            emptySymbol={element2}
+                                initialRating={review.ratting}
+                                fullSymbol={element1}
+                                emptySymbol={element2}
                             ></Rating>
                         </div>)
                 }
