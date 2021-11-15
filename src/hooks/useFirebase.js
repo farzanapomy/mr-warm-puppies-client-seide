@@ -51,11 +51,11 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                if (admin) {
+                
                     const destination = location?.start?.from || "/dashboard";
                     console.log(destination)
                     history.replace(destination);
-                }
+              
 
             })
             .catch((error) => {

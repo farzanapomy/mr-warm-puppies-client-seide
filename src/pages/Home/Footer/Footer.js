@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
 
 
-            <footer className="new_footer_area bg_color my-5 bg-success container">
+            <footer className="new_footer_area bg_color my-5 bg-success ">
                 <div className="new_footer_top">
                     <div className="container">
                         <div className="row">

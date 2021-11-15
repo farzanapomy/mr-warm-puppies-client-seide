@@ -35,7 +35,7 @@ const Register = () => {
     }
 
     return (
-        <div className='container'>
+        <div className='container '>
             <div>
                 <div className='row register-form'>
                     <div className='col-md-6'>

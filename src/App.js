@@ -20,6 +20,7 @@ import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import MyOrders from './pages/Private/MyOrders/MyOrders';
 import Reviews from './pages/Home/Reviews/Reviews';
 import DashBoard from './pages/DashBoard/DashBoard/DashBoard';
+import ManageOrder from './pages/Private/ManageOrder/ManageOrder';
 
 function App() {
   return (
@@ -51,7 +52,6 @@ function App() {
             </Route>
             <PrivateRoute exact path="/allProducts/:Id">
               <PlaceOrder />
-
             </PrivateRoute>
             <Route path="/allProducts">
               <AllProducts />
@@ -59,9 +59,12 @@ function App() {
             <PrivateRoute path="/myOrders">
               <MyOrders />
             </PrivateRoute>
-            <Route path="/placeOrder">
+            <PrivateRoute path="/placeOrder">
               <PlaceOrder />
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute path="/manageOrder">
+              <ManageOrder />
+            </PrivateRoute>
             <PrivateRoute path="/dashBoard">
               <DashBoard />
             </PrivateRoute>

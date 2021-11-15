@@ -12,6 +12,7 @@ import {
 import AddReview from '../AddReview/AddReview';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProduct from '../../Private/AddProduct/AddProduct';
+import ManageOrder from '../../Private/ManageOrder/ManageOrder';
 
 const DashBoard = () => {
     const { path, url } = useRouteMatch();
@@ -47,14 +48,17 @@ const DashBoard = () => {
                             {
                                 admin &&
                                 <div>
-                                    <Link to={`${url}`}>
-                                        <li className="dashboard-menu mt-5">Back</li>
-                                    </Link>
+                                   <Link to='/home'>
+                                    <button className="dashboard-menu mt-5 btn btn-warning px-5">Back</button>
+                                </Link>
                                     <Link to={`${url}/makeAdmin`}>
                                         <li className="dashboard-menu mt-5">MakeAdmin</li>
                                     </Link>
                                     <Link to={`${url}/addProduct`}>
                                         <li className="dashboard-menu mt-5">AddProduct</li>
+                                    </Link>
+                                    <Link to={`${url}/managerOrder`}>
+                                        <li className="dashboard-menu mt-5">Manage All Order</li>
                                     </Link>
                                 </div>
                             }
@@ -67,7 +71,7 @@ const DashBoard = () => {
                             <Route exact path={path}>
                                 <MyOrders></MyOrders>
                             </Route>
-                           
+
                             <Route path={`${path}/addReview`}>
                                 <AddReview></AddReview>
                             </Route>
@@ -79,6 +83,9 @@ const DashBoard = () => {
                             </Route>
                             <Route path={`${path}/addProduct`}>
                                 <AddProduct></AddProduct>
+                            </Route>
+                            <Route path={`${path}/managerOrder`}>
+                                <ManageOrder></ManageOrder>
                             </Route>
                         </Switch>
                     </div>
