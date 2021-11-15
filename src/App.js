@@ -15,8 +15,7 @@ import AuthProvider from './contexts/AuthProvider';
 import NotFound from './pages/NotFound/NotFound';
 import Register from './pages/Login/Register/Register';
 import PlaceOrder from './pages/Private/PlaceOrder/PlaceOrder';
-import Menubar from './pages/Home/Menubar/Menubar';
-import Footer from './pages/Home/Footer/Footer';
+
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import MyOrders from './pages/Private/MyOrders/MyOrders';
 import Reviews from './pages/Home/Reviews/Reviews';
@@ -27,7 +26,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
-          <Menubar></Menubar>
+       
           <Switch>
             <Route exact path="/">
               <Home />
@@ -79,7 +78,6 @@ function App() {
               <NotFound />
             </Route>
           </Switch>
-          <Footer></Footer>
         </Router >
       </AuthProvider>
 

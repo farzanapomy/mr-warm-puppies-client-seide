@@ -19,27 +19,37 @@ const DashBoard = () => {
 
 
     return (
-        <div className="container">
+        <div className="container my-5">
             <div className="dashboard-container ">
                 <div className="row">
                     <div className="col-md-3 ">
-                        <div className="user-dashboard">
+                        <div className="dashboard">
                             <h5 style={{ margin: "15px", padding: "15px", textDecoration: "" }}>User Dashboard</h5>
-                            <Link to={`${url}`}>
-                                <li className="dashboard-menu mt-5">My Orders</li>
-                            </Link>
+                            {!admin && <div>
+                                <Link to='/home'>
+                                    <button className="dashboard-menu mt-5 btn btn-warning px-5">Back</button>
+                                </Link>
+                                <Link to={`${url}`}>
+                                    <li className="dashboard-menu mt-5">My Orders</li>
+                                </Link>
 
-                            <Link to={`${url}/payment`}>
-                                <li className="dashboard-menu mt-5">Payment</li>
-                            </Link>
+                                <Link to={`${url}/payment`}>
+                                    <li className="dashboard-menu mt-5">Payment</li>
+                                </Link>
 
-                            <Link to={`${url}/addReview`}>
-                                <li className="dashboard-menu mt-5">AddReview</li>
-                            </Link>
+                                <Link to={`${url}/addReview`}>
+                                    <li className="dashboard-menu mt-5">AddReview</li>
+                                </Link>
 
+                            </div>
+
+                            }
                             {
-                                admin && 
+                                admin &&
                                 <div>
+                                    <Link to={`${url}`}>
+                                        <li className="dashboard-menu mt-5">Back</li>
+                                    </Link>
                                     <Link to={`${url}/makeAdmin`}>
                                         <li className="dashboard-menu mt-5">MakeAdmin</li>
                                     </Link>
@@ -52,11 +62,12 @@ const DashBoard = () => {
                             <button onClick={logOut} style={{ backgroundColor: "blue", color: 'white' }} className='btn px-4 m-3'>LogOut</button>
                         </div>
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-9 dashboard">
                         <Switch>
                             <Route exact path={path}>
                                 <MyOrders></MyOrders>
                             </Route>
+                           
                             <Route path={`${path}/addReview`}>
                                 <AddReview></AddReview>
                             </Route>

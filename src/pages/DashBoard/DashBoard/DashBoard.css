@@ -1,4 +1,6 @@
-.user-dashboard{
-    background-color: burlywood;
+.dashboard{
+    background-color: rgba(255, 99, 71, 0.767);
+    border: 1px solid gray;
+    border-radius: 25px;
     height: 100vh;
 }
