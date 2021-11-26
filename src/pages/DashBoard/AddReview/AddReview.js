@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import './AddReview.css'
 
 const AddReview = () => {
-    const { register, handleSubmit,reset } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
         axios.post('https://powerful-ravine-08255.herokuapp.com/reviews', data)
@@ -30,46 +30,49 @@ const AddReview = () => {
 
     return (
         <div className='container my-2 p-3 '>
-            <h2>Here your add your review about our product and website</h2>
-            <div className='5 form-style'>
-                <form onSubmit={handleSubmit(onSubmit)} className=' my-2' >
+            <h2>Add your review about our product</h2>
+            <div className=' form-style'>
+                <form onSubmit={handleSubmit(onSubmit)} className='' >
                     <input
                         required
+                        
                         {...register("name",)}
                         placeholder='Enter your name'
-                        className='border-0  px-5 py-2'
+                        className='border-0 px-5 py-2 mx-auto'
                     />
-                    <br />
+                   
                     <input
                         {...register("text",)}
                         required
                         placeholder='Enter Product Name'
-                        className='border-0  px-5 py-2'
+                        className='border-0  px-5 py-2 mx-auto'
                     />
-                    <br />
+                   
                     <input
                         {...register("image",)}
                         required
                         placeholder='Enter your img link'
-                        className='border-0  px-5 py-2'
+                        className='border-0  px-5 py-2 mx-auto'
 
                     />
-                    <br />
+                 
                     <textarea
                         {...register("description",)}
                         required
                         placeholder='Enter your Opinion'
-                        className='border-0  px-5 py-2'
+                        className='border-0  px-5 py-2 mx-auto'
                     />
-                    <br />
+                
                     <input type="number"
                         required
                         placeholder='Enter rating'
-                        {...register("ratting", { min: 0, max: 5 })}
-                        className='border-0  px-5'
+                        {...register("ratting",)}
+                        min="1"
+                        max="5"
+                        className='border-0  px-5 px-3 mx-auto'
                     />
-                    <br />
-                    <input type="submit" />
+                  
+                    <input type="submit"  className='border-0  px-5 px-3 mx-auto'/>
                 </form>
             </div>
         </div>
