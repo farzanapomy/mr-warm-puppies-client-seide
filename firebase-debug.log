@@ -1,0 +1,66 @@
+[debug] [2021-11-29T21:54:05.196Z] ----------------------------------------------------------------------
+[debug] [2021-11-29T21:54:05.200Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-11-29T21:54:05.201Z] CLI Version:   9.23.0
+[debug] [2021-11-29T21:54:05.201Z] Platform:      win32
+[debug] [2021-11-29T21:54:05.201Z] Node Version:  v14.17.1
+[debug] [2021-11-29T21:54:05.215Z] Time:          Tue Nov 30 2021 03:54:05 GMT+0600 (Bangladesh Standard Time)
+[debug] [2021-11-29T21:54:05.216Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-29T21:54:05.302Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-29T21:54:05.302Z] > authorizing via signed-in user (pomyfarzana@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  G:\projects\react project\mileston-12\assignment\mr-warm-puppies-client
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using mr-warm-puppies. 
+[debug] [2021-11-29T21:54:16.458Z] > refreshing access token with scopes: []
+[debug] [2021-11-29T21:54:16.459Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-29T21:54:16.791Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Mon, 29 Nov 2021 21:53:15 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-29T21:54:16.803Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mr-warm-puppies [none]
+[debug] [2021-11-29T21:54:17.315Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mr-warm-puppies 200
+[debug] [2021-11-29T21:54:17.315Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mr-warm-puppies {"projectId":"mr-warm-puppies","projectNumber":"416488098867","displayName":"mr-warm-puppies","name":"projects/mr-warm-puppies","resources":{"hostingSite":"mr-warm-puppies"},"state":"ACTIVE"}
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2021-11-29T21:54:17.319Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-11-29T21:54:17.319Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-29T21:54:17.527Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Mon, 29 Nov 2021 21:53:16 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-29T21:54:17.537Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/mr-warm-puppies/services/firebasedatabase.googleapis.com  
+ 
+[debug] [2021-11-29T21:54:19.336Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 29 Nov 2021 21:53:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] !  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2021-11-29T21:54:19.338Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/mr-warm-puppies/services/firebasedatabase.googleapis.com:enable  
+ 
+[debug] [2021-11-29T21:54:21.207Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 29 Nov 2021 21:53:20 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-29T21:54:31.217Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/mr-warm-puppies/services/firebasedatabase.googleapis.com  
+ 
+[debug] [2021-11-29T21:54:32.915Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 29 Nov 2021 21:53:32 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2021-11-29T21:54:32.922Z] > refreshing access token with scopes: []
+[debug] [2021-11-29T21:54:32.923Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-29T21:54:33.175Z] <<< HTTP RESPONSE 200 {"date":"Mon, 29 Nov 2021 21:53:32 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-11-29T21:54:33.186Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mr-warm-puppies [none]
+[debug] [2021-11-29T21:54:33.672Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mr-warm-puppies 200
+[debug] [2021-11-29T21:54:33.672Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mr-warm-puppies {"projectId":"mr-warm-puppies","projectNumber":"416488098867","displayName":"mr-warm-puppies","name":"projects/mr-warm-puppies","resources":{"hostingSite":"mr-warm-puppies"},"state":"ACTIVE"}
