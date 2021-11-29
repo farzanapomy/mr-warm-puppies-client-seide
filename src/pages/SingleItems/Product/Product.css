@@ -5,6 +5,10 @@
     border-radius: 15px;
     margin: 40px;
 }
+.single-item img:hover{
+    transform: scale(1.06);
+    transition: 1s ease-in-out; 
+}
 
 
 .single-item:hover{
