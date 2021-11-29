@@ -1,12 +1,13 @@
 .single-item img{
-    width: 250px;
-    height: 300px;
+    /* width: 250px;
+    height: 400px; */
     margin-bottom: 5px;
     border-radius: 15px;
+    margin: 40px;
 }
 
 
 .single-item:hover{
-    border-radius: 25px;
-    background-color: rgba(222, 184, 135, 0.63);
+    transform: scale(1.06);
+    transition: 1s ease-in-out; 
 }

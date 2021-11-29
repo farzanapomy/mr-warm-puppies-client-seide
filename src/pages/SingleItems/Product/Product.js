@@ -13,8 +13,8 @@ const Product = ({ product }) => {
     }, [])
 
     return (
-        <div id='products' className=' col-md-4 '>
-            <Card className=''>
+        <div id='products' className=' col-md-4 p-1'>
+            <Card className='p-3'>
                 <Card className="mx-auto  single-item g-5" data-aos='flip-left'>
                     <Card.Img className='mx-auto' src={img} alt="Card image" />
                     <Card.Title>{name}</Card.Title>

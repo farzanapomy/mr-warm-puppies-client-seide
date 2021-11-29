@@ -15,13 +15,13 @@ const Menubar = () => {
     return (
 
         <>
-            <Navbar bg="dark" className='mb-2 ' variant="dark" sticky="top" collapseOnSelect expand="lg">
+            <Navbar bg="" className='mb-2 ' variant="light" sticky="right" collapseOnSelect expand="lg">
                 <Container className=''>
                     <Navbar.Brand className='logo border-0 nav-img' href="/home#home">
-                        <img className='my-2 bg-white rounded ' src={logo} alt="" />
+                        <img className='bg-dark rounded ' src={logo} alt="" />
                     </Navbar.Brand>
                     <Navbar.Toggle />
-
+<summary></summary>
                     <Navbar.Collapse className="justify-content-end ">
                         <Nav.Link className='nav-text' as={HashLink} to="/home#home">Home</Nav.Link>
                         <Nav.Link className='nav-text' as={HashLink} to="/allProducts">All Product</Nav.Link>
@@ -36,17 +36,23 @@ const Menubar = () => {
                         <Navbar.Text>
 
                             {user.email &&
-                                <h6>{element} <a href="#login"> {user?.displayName}</a>
+                                <h6>{element} <a href="#login"> Hello {user?.displayName}</a>
                                 </h6>
                             }
                         </Navbar.Text>
-                      
-                        <Navbar.Collapse className='me-end'>
+
+                        <Navbar.Collapse className='justify-content-end'>
                             {
                                 user.email ?
-                                    <Button variant='primary' className='m-3' onClick={logOut}>Sign Out</Button>
+                                    <Button variant='primary' className='m-3' onClick={logOut}>
+                                        Sign Out
+                                    </Button>
                                     :
-                                    <button className='nav-button nav-text'><Nav.Link as={HashLink} to="/login">Login </Nav.Link></button>
+                                    <button className='border-0 rounded  '>
+                                        <Nav.Link as={HashLink} to="/login">
+                                            {element}
+                                        </Nav.Link>
+                                    </button>
                             }
                         </Navbar.Collapse>
                     </Navbar.Collapse>
