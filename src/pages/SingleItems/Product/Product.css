@@ -1,17 +1,13 @@
 .single-item img{
-    /* width: 250px;
-    height: 400px; */
+    width: 200px;
+    height: 150px;
     margin-bottom: 5px;
     border-radius: 15px;
-    margin: 40px;
 }
-.single-item img:hover{
-    transform: scale(1.06);
-    transition: 1s ease-in-out; 
+.single-card{
+    line-height: 18px;
 }
 
 
-.single-item:hover{
-    transform: scale(1.06);
-    transition: 1s ease-in-out; 
-}
+
+

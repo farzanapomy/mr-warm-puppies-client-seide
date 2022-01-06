@@ -9,10 +9,3 @@
 }
 
 
-.single-item:hover{
-    border-radius: 25px;
-    box-shadow: 10px 10px 20px black;
-    background-color: rgba(222, 184, 135, 0.63);
-}
-
-
