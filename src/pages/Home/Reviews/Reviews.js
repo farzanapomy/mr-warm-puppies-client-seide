@@ -24,15 +24,15 @@ const Reviews = () => {
     }, [])
 
     return (
-        <div id='reviews' className='container my-5' data-aos='fade-up'>
+        <div id='reviews' className='container my-5 review-section' data-aos='fade-up'>
             <div className='mb-3'>
                 <h1>Client Testimonials</h1>
                 <p>See what people are saying about us.</p>
             </div>
-            <div className="row container">
+            <div className="row container g-3">
                 {
                     reviews.map(review =>
-                        <div className=' col-md-3 m-2 border p-2 review-item'
+                        <div className=' col-md-4 p-2 review-item'
                             key={review._id}
                         >
                             <Image src={review.image} className='img-fluid w-25 p-2 ' roundedCircle />

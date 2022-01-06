@@ -1,3 +1,11 @@
 .review-item{
-    box-shadow: 5px 5px 20px black;
+    border: 1px solid lemonchiffon;
+    /* margin: 5px; */
+}
+
+.review-section h1{
+    font-weight: 700;
+    font-size: 50px;
+    letter-spacing: 10px;
+    
 }

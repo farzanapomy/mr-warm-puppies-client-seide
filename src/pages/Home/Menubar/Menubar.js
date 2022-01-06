@@ -16,20 +16,20 @@ const Menubar = () => {
     return (
 
         <>
-            <Navbar bg="" className='mb-2 ' variant="light" sticky="right" collapseOnSelect expand="lg">
+            <Navbar bg="" className='' variant="light" sticky="right" collapseOnSelect expand="lg">
                 <Container className=''>
-                    <Navbar.Brand className='logo border-0 nav-img' href="/home#home">
-                        <img className='bg-dark rounded ' src={logo} alt="" />
+                    <Navbar.Brand className='logo border-0 nav-title' href="/home#home">
+                        <h1>Mr. Puppies</h1>
                     </Navbar.Brand>
                     <Navbar.Toggle />
 
                     <Navbar.Collapse className="justify-content-end ">
-                        <Nav.Link className='nav-text' as={Link} to="/home#home">Home</Nav.Link>
-                        <Nav.Link className='nav-text' as={HashLink} to="/allProducts">All Product</Nav.Link>
-                        <Nav.Link className='nav-text' as={HashLink} to="/home#reviews">Reviews</Nav.Link>
+                        <Nav.Link as={Link} to="/home#home">Home</Nav.Link>
+                        <Nav.Link as={HashLink} to="/allProducts">All Product</Nav.Link>
+                        <Nav.Link as={HashLink} to="/home#reviews">Reviews</Nav.Link>
 
-                        {user.email && <Nav.Link className='nav-text' as={HashLink} to="/dashBoard">DashBoard</Nav.Link>}
-                        <Nav.Link className='nav-text' as={HashLink} to="/home#about">About US</Nav.Link>
+                        {user.email && <Nav.Link as={HashLink} to="/dashBoard">DashBoard</Nav.Link>}
+                        <Nav.Link as={HashLink} to="/home#about">About US</Nav.Link>
 
                     </Navbar.Collapse>
                 </Container>
